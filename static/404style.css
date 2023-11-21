@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500');
 *{
     margin: 0;
     padding: 0;
@@ -7,8 +8,8 @@
 }
 .banner{
     width: 100%;
-    height: 830px;
-    background-image: linear-gradient(rgba(8, 33, 46, 0.9),rgba(69, 125, 186,0.2)), url(blueback.jpg);
+    height: 740px;
+    background-image: linear-gradient(rgba(8, 33, 46, 0.9),rgba(69, 125, 186,0.2)), url(errorPage.png);
     background-size: cover;
 }
 .navbar{
@@ -53,20 +54,21 @@
     color: #fff;
 }
 .content h1{
-    font-size: 70px;
-    margin-top: 80px;
+    font-size: 120px;
+    margin-top: 60px;
     color: #fff;
     white-space: nowrap;
-    font-size: 7.5vw;
+    font-size: 12vw;
     z-index: 9;
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    font-family: 'Dosis', sans-serif;
 
 }
 .content p{
     font-size: 30px;
-    margin: 30px auto;
+    margin: 15px auto;
     font-weight: 100;
     line-height: 25px;
     animation: fadeInAnimation ease 3s;
@@ -89,7 +91,7 @@
     margin: 20px 10px;
     border-radius: 25px;
     font-weight: bold;
-    border: 2px solid #2e70b8;
+    border: 2px solid #7c88f7;
     background: transparent;
     color: #fff;
     cursor: pointer;
@@ -98,7 +100,7 @@
     transition: 0.4s;
 }
 span{
-    background: #2e70b8;
+    background: #7c88f7;
     height: 100%;
     width: 0;
     border-radius: 25px;
@@ -114,21 +116,4 @@ button:hover span{
 }
 .scroll:hover {
     transform: scale(1.2);
-}
-
-.about{
-    position: relative;
-    padding: 60px;
-    background: #2e70b8;
-    background-image: linear-gradient(rgba(69, 125, 186,0.9), rgba(150, 198, 250, 0.9));
-    font-size: 18px;
-    line-height: 32.5px;
-}
-.about p{
-
-    color: #0b3759;
-}
-
-html {
-  scroll-behavior: smooth;
 }
