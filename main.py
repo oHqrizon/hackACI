@@ -34,6 +34,18 @@ def register():
         # data_entry(name, email, password) #save into our database (will encrypt password later)
     return render_template("register.html")
 
+@app.route("/application", methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        name = request.form["nm"]
+        email = request.form["email"]
+        password = request.form["pass"]
+        session["name"] = name
+        session["email"] = email
+        session["password"] = password
+
+    return render_template("login.html")
+
 
 @app.errorhandler(404)
 def not_found_error(error):
