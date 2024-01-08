@@ -1,10 +1,14 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
+from flask_sqlalchemy import SQLAlchemy
+
 import sqlite3
 
 conn = sqlite3.connect('users.db')
 
 app = Flask(__name__)
 app.secret_key = "hello"
+
+conn = sqlite3.connect('users.db')
 
 def data_entry(name, email, password):
     with sqlite3.connect("users.db") as conn:
@@ -17,6 +21,7 @@ def data_entry(name, email, password):
 def home():
     return render_template("home.html")
 
+
 @app.route("/register", methods=["POST", "GET"])
 def register():
     if request.method == "POST":
@@ -26,8 +31,9 @@ def register():
         session["name"] = name
         session["email"] = email
         session["password"] = password
-        data_entry(name, email, password) #save into our database (will encrypt password later)
+        # data_entry(name, email, password) #save into our database (will encrypt password later)
     return render_template("register.html")
+
 
 @app.errorhandler(404)
 def not_found_error(error):

@@ -18,15 +18,16 @@
             <form method="post">
                 <div class="input-group">
                     <div class="input-field">
-                        <input type="text" name="nm" placeholder="Full Name" required>
+                        <input type="text" name="nm" placeholder="Full Name" required maxlength="50">
                     </div>
                     <div class="input-field">
-                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="email" name="email" placeholder="Email" required maxlength="50">
                     </div>
+
                     <div class="input-field">
-                        <input type="password" name="pass" placeholder="Password" required>
+                        <input id="pass" type="password" name="pass" placeholder="Password" required>
                     </div>
-                <p>Forgot password <a href="#">Click Here!</a></p>
+                <p>Check email to verify after submission</p>
                 </div>
                 <div class="btn-field">
                     <a href="#">
@@ -36,7 +37,5 @@
             </form>
         </div>
     </div>
-
-
 
 </body>
