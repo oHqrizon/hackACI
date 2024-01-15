@@ -26,6 +26,7 @@
 
 }
 .navbar ul li{
+    transform: translateX(35%);
     font-size: 20px;
     list-style: none;
     display: inline-block;
@@ -55,21 +56,38 @@
 .content h1{
     font-size: 70px;
     margin-top: 80px;
-    color: #fff;
+    color: transparent;
+    background-image: linear-gradient(to left, #87dfff, #3498db, #9b59b6, #8fc1ff);
+    -webkit-background-clip: text;
+    animation: colorSwitch 6s linear infinite, fadeInAnimation ease 1s;
+    -webkit-background-size: 500%;
+    background-size: 500%;
+
     white-space: nowrap;
-    font-size: 7.5vw;
+    font-size: 8vw;
     z-index: 9;
-    animation: fadeInAnimation ease 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
 
 }
+
+@keyframes colorSwitch{
+    0%{
+        background-position: 0 100%;
+    }
+    50%{
+        background-position: 100% 0;
+    }
+    100%{
+        background-position: 0 100%;
+    }
+}
+
 .content p{
     font-size: 30px;
-    margin: 30px auto;
+    margin: 20px auto;
+    transform: translateY(-80%);
     font-weight: 100;
     line-height: 25px;
-    animation: fadeInAnimation ease 3s;
+    animation: fadeInAnimation ease 5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 
@@ -83,9 +101,11 @@
     }
 }
 .scroll{
-    width: 200px;
+    width: 225px;
+    height: 60px;
     padding: 15px 0px;
     text-align: center;
+    font-size: 16px;
     margin: 20px 10px;
     border-radius: 25px;
     font-weight: bold;

@@ -28,6 +28,7 @@
 
 }
 .navbar ul li{
+    transform: translateX(35%);
     font-size: 20px;
     list-style: none;
     display: inline-block;

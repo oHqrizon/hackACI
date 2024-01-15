@@ -1,4 +1,4 @@
 /.idea
 /venv
-/users.db
 /__pycache__
+/accounts.db
