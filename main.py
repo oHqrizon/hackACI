@@ -26,9 +26,6 @@ def data_entry(name, email, password):
         list_of_email = c.execute("SELECT * FROM users WHERE email = ?", (email,)).fetchall()
         if list_of_email == []:
             c.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", (name, email, password))
-            # msg = Message("Verification Test", sender='noreply@mailtrap.club', recipients=['james.cai4@student.tdsb.on.ca'])
-            # msg.body = "verification test"
-            # mail.send(msg)
             return True
         else:
             print("You already have an account. Please contact admin for changes.")
