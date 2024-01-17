@@ -1,6 +1,7 @@
 <head>
     <title>Register</title>
     <link rel="stylesheet" href="static/regStyle.css">
+    <script src="pass.js"></script>
 </head>
 <body>
     <div class="banner">
@@ -21,21 +22,62 @@
                         <input type="text" name="nm" placeholder="Full Name" required maxlength="75">
                     </div>
                     <div class="input-field">
-                        <input type="email" name="email" placeholder="Email" required maxlength="75">
+                        <input type="email" name="email" placeholder="Email" required maxlength="75" class="password-input">
                     </div>
 
                     <div class="input-field">
                         <input id="pass" type="password" name="pass" placeholder="Password" minlength="8" maxlength="75" required>
                     </div>
-                <p>Check email to verify after submission</p>
+                <p>Check email after submission</p>
                 </div>
                 <div class="btn-field">
-                    <a href="/application">
-                    <button class="regbut" type="submit">Register</button>
-                    </a>
+                    <button class="regbut" type="submit" onclick="openPopup()">Register</button>
+                    <div class="popup" id="popup">
+                        <img src="static/checkmark.png">
+                        <h2>Thank You!</h2>
+                        <p>You have successfully registered! Please check your email to verify your account!</p>
+                        <a href="/application">
+                        <button type="button" onclick="closePopup()">OK, Take me to Login</button>
+                        </a>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('form').submit(function (event) {
+            event.preventDefault();
+
+            // Get form data
+            var formData = $(this).serialize();
+
+            // Send AJAX request to the server
+            $.ajax({
+                type: 'POST',
+                url: '/register',
+                data: formData,
+                success: function (response) {
+                    if (response.complete) {
+                        openPopup();
+                    } else {
+                        console.error('Registration failed.');
+                    }
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+        let popup = document.getElementById("popup");
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
+    });
+</script>
 </body>

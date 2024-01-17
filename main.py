@@ -1,6 +1,6 @@
-from flask import Flask, render_template, redirect, url_for, request, session, flash, g
+from flask import Flask, render_template, redirect, url_for, request, session, jsonify
 from flask_mail import Mail, Message
-
+import time
 import bcrypt
 import sqlite3
 
@@ -53,8 +53,7 @@ def findName(email):
     with sqlite3.connect("accounts.db") as conn:
         c = conn.cursor()
         list_of_name = c.execute("SELECT name FROM users WHERE email = ?", (email,)).fetchall()
-        if list_of_name != []:
-            name = list_of_name[0]
+        name = list_of_name[0]
         conn.commit()
         c.close()
         return name
@@ -68,14 +67,20 @@ def home():
 @app.route("/register", methods=["POST", "GET"])
 def register():
     if not "email" in session:
+        complete = False
         if request.method == "POST":
             name = request.form["nm"]
             email = request.form["email"]
             password = request.form["pass"]
             hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
             if data_entry(name, email, hashed):
-                return redirect(url_for("login"))
-        return render_template("register.html")
+                complete = True
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            # If it's an AJAX request, return JSON
+            return jsonify({'complete': complete})
+        else:
+            # If it's not an AJAX request, render the template
+            return render_template("register.html", complete=complete)
     else:
         return redirect(url_for("application"))
 
@@ -98,10 +103,9 @@ def login():
 
 @app.route("/start-application")
 def application():
-    name = findName(session["email"])[0]
-    print(name)
     if "email" in session:
-        return render_template("application.html", name=name)
+        firstname = findName(session["email"])[0].split()[0]
+        return render_template("application.html", name=firstname)
     else:
         return redirect(url_for("login"))
 
