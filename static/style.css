@@ -139,15 +139,123 @@ button:hover span{
 .about{
     position: relative;
     padding: 60px;
+    color: #142959;
     background: #2e70b8;
     background-image: linear-gradient(rgba(69, 125, 186,0.9), rgba(150, 198, 250, 0.9));
     font-size: 18px;
     line-height: 32.5px;
 }
 .about p{
-
     color: #0b3759;
 }
+
+.container {
+	padding: 2rem;
+}
+
+.slider-wrapper {
+    border-radius: 20px;
+	position: relative;
+	max-width: 50rem;
+	max-height: 20rem;
+	margin: 0 auto;
+	background-color: white;
+}
+
+
+.faq{
+    position: relative;
+    display: flex;
+    flex-direction:column;
+    gap:40px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.faq h1{
+    color:black;
+
+}
+
+.faq .tab {
+    position: relative;
+    background:#b9caf0;
+    padding : 10px 20px 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.faq .tab input{
+    appearance: none;
+}
+
+.faq .tab label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq .tab label::after{
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 2em;
+    color: black;
+    transition: transform 1s;
+}
+
+.faq .tab:hover label::after{
+    color: #2b1055
+}
+
+.faq .tab input:checked ~ label::after{
+    content:'-';
+}
+
+.faq .tab label h2{
+    width:40px;
+    height: 40px;
+    background-color: #8eaae6;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    font-size: 1.25em;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+
+
+.faq .tab label h3{
+    position: relative;
+    font-weight: 500;
+    color: black;
+    z-index: 10;
+
+}
+
+.faq .tab .faqcon {
+    max-height:0;
+    transition: 01s;
+    overflow: hidden;
+
+}
+
+.faq .tab input:checked ~ .faqcon{
+
+    max-height: 100vh;
+
+}
+
+.faq .tab .faqcon p{
+    padding : 10px 0;
+    position: relative;
+    color: black;
+    z-index: 10;
+}
+
 
 html {
   scroll-behavior: smooth;
