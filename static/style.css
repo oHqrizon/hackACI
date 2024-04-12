@@ -5,13 +5,15 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-.banner{
+.banner {
     width: 100%;
     height: 830px;
-    background-image: linear-gradient(rgba(8, 33, 46, 0.9),rgba(69, 125, 186,0.2)), url(blueback.jpg);
+    background-image: linear-gradient(rgba(8, 33, 46, 0.9), rgba(69, 125, 186, 0.2)), url(blueback.jpg);
     background-size: cover;
+    background-position: center;
 }
-.navbar{
+
+.navbar {
     width: 85%;
     margin: auto;
     padding: 35px 0;
@@ -19,42 +21,55 @@
     align-items: center;
     justify-content: space-between;
 }
-.logo{
+
+.logo {
     width: 120px;
     cursor: pointer;
     margin: -10px;
+}
 
-}
-.navbar ul li{
-    transform: translateX(35%);
-    font-size: 20px;
-    list-style: none;
-    display: inline-block;
-    margin: 0 25px;
+.navbar ul {
     position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
-.navbar ul li a{
+
+
+.navbar ul li {
+    font-size: 20px;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
     text-decoration: none;
     padding: 6px 15px;
     color: #fff;
     border-radius: 30px;
 }
-.navbar ul li a:hover{
+
+.navbar ul li a:hover {
     background: #fff;
     color: #2b1055;
     transition: 0.3s;
 }
 
-.content{
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+.navbar .toggle_btn{
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.content {
     text-align: center;
     color: #fff;
+    transform: translateY(-15%);
 }
-.content h1{
-    font-size: 70px;
+
+.content h1 {
+    font-size: clamp(60px, 12vw, 120px);
     margin-top: 80px;
     color: transparent;
     background-image: linear-gradient(to left, #87dfff, #3498db, #9b59b6, #8fc1ff);
@@ -62,27 +77,70 @@
     animation: colorSwitch 6s linear infinite, fadeInAnimation ease 1s;
     -webkit-background-size: 500%;
     background-size: 500%;
-
     white-space: nowrap;
-    font-size: 8vw;
     z-index: 9;
+}
+
+.dropdown{
+    transform: translateY(25%);
+    position: absolute;
+    right: 2rem;
+    top: 50px;
+    height: 0;
+    width: 200px;
+    background: rgba(104, 155, 232, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 9;
+}
+
+.dropdown li{
+    list-style: none;
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin: 0 15px;
 
 }
 
-@keyframes colorSwitch{
-    0%{
-        background-position: 0 100%;
+
+.dropdown li a{
+    padding: 3px 10px;
+    color: #0F3E84;
+    text-decoration: none;
+    border-radius: 30px;
+}
+
+.dropdown li a:hover {
+    background: #fff;
+    color: #2b1055;
+    transition: 0.3s;
+}
+
+.dropdown.open {
+    height: 240px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 992px) {
+    .navbar ul{
+    display: none;
     }
-    50%{
-        background-position: 100% 0;
-    }
-    100%{
-        background-position: 0 100%;
+
+    .navbar .toggle_btn{
+        display:block;
     }
 }
+
+
+
 
 .content p{
-    font-size: 30px;
+    font-size: clamp(5px, 1vw + 0.9rem, 40px);
     margin: 20px auto;
     transform: translateY(-80%);
     font-weight: 100;
@@ -146,22 +204,35 @@ button:hover span{
     line-height: 32.5px;
 }
 .about p{
+    font-size: clamp(5px, 1vw + 1rem, 18px);
     color: #0b3759;
 }
 
 .container {
-	padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
 }
 
 .slider-wrapper {
-    border-radius: 20px;
-	position: relative;
-	max-width: 50rem;
-	max-height: 20rem;
-	margin: 0 auto;
-	background-color: white;
+    position: relative;
+    width: 90%;
+    max-width: 32.5rem;
+    height: auto;
+    max-height: 15rem;
+    overflow: hidden;
+    border-radius: 25px;
+    background-color: white;
 }
 
+
+.slider-wrapper img {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
 
 .faq{
     position: relative;
@@ -174,6 +245,7 @@ button:hover span{
 
 .faq h1{
     color:black;
+    font-size: clamp(20px, 3.25vw + 1rem, 50px);
 
 }
 
@@ -190,6 +262,7 @@ button:hover span{
 }
 
 .faq .tab label {
+    font-size: clamp(5px, 1vw + 0.7rem, 20px);
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -199,7 +272,7 @@ button:hover span{
     content: '+';
     position: absolute;
     right: 20px;
-    font-size: 2em;
+    font-size: clamp(5px, 1vw + 0.9rem, 40px);
     color: black;
     transition: transform 1s;
 }

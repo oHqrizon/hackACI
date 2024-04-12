@@ -2,7 +2,11 @@
     <title>Hack ACI</title>
     <link rel="stylesheet" href="static/style.css">
     <link rel="icon" href="static/hacklogo.png" type="png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
+
 <body>
     <div class="banner">
         <div class="navbar">
@@ -13,6 +17,30 @@
                 <li><a href="/register">Register</a></li>
                 <li><a href="/application">Application</a></li>
             </ul>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="dropdown">
+                <li><a href="/">Home</a></li>
+                <li><a href="#aboutus">About Us</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/application">Application</a></li>
+            </div>
+            <script>
+                const toggleBtn = document.querySelector('.toggle_btn')
+                const toggleBtnIcon = document.querySelector('.toggle_btn i')
+                const dropDownMenu = document.querySelector('.dropdown')
+
+                toggleBtn.onclick = function () {
+                    dropDownMenu.classList.toggle('open')
+                    const isOpen = dropDownMenu.classList.contains('open')
+
+                    toggleBtnIcon.classList = isOpen
+                        ? 'fa-solid fa-xmark'
+                        : 'fa-solid fa-bars'
+                }
+
+            </script>
         </div>
 
         <div class="content">
@@ -33,7 +61,7 @@
             Join 50+ high school hackers on a journey to make your projects come to life. We will provide you with workshops, ideas and support you on your journey of creativity.
         </p>
         <br><br><br>
-        <h1 style="font-size:50px; color: #21479c;"><center>FEATURED SPONSORS</center></h1>
+        <h1 style="font-size: clamp(20px, 4vw + 1rem, 50px);; color: #21479c;"><center>FEATURED SPONSORS</center></h1>
         <br>
         <section class="container">
 	<div class="slider-wrapper">
@@ -42,7 +70,7 @@
         </section>
         <br><br><br>
         <div class="faq">
-        <h1 style="font-size:50px">Frequently Asked Questions</h1>
+        <h1>Frequently Asked Questions</h1>
             <div class="tab">
             <input type="radio" name="acc" id="acc1">
             <label for="acc1">
