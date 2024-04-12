@@ -69,7 +69,7 @@
 }
 
 .content h1 {
-    font-size: clamp(60px, 12vw, 120px);
+    font-size: clamp(80px, 14vw, 120px);
     margin-top: 80px;
     color: transparent;
     background-image: linear-gradient(to left, #87dfff, #3498db, #9b59b6, #8fc1ff);
@@ -79,6 +79,39 @@
     background-size: 500%;
     white-space: nowrap;
     z-index: 9;
+
+}
+
+@keyframes colorSwitch{
+    0%{
+        background-position: 0 100%;
+    }
+    50%{
+        background-position: 100% 0;
+    }
+    100%{
+        background-position: 0 100%;
+    }
+}
+
+.content p{
+    font-size: clamp(5px, 1vw + 0.9rem, 40px);
+    margin: 20px auto;
+    transform: translateY(-80%);
+    font-weight: 100;
+    line-height: 25px;
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .dropdown{
@@ -139,25 +172,7 @@
 
 
 
-.content p{
-    font-size: clamp(5px, 1vw + 0.9rem, 40px);
-    margin: 20px auto;
-    transform: translateY(-80%);
-    font-weight: 100;
-    line-height: 25px;
-    animation: fadeInAnimation ease 5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
 
-}
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 .scroll{
     width: 225px;
     height: 60px;
@@ -208,6 +223,7 @@ button:hover span{
     color: #0b3759;
 }
 
+
 .container {
     display: flex;
     justify-content: center;
@@ -232,7 +248,25 @@ button:hover span{
     height: auto;
     display: block;
     margin: auto;
+    transition: 0.3s;
 }
+
+.slider-wrapper img:hover  {
+    transform: scale(1.08);
+
+}
+
+.message h1{
+    font-size: clamp(15px, 4vw + 0.4rem, 30px);
+    color: transparent;
+    background-image: linear-gradient(to left, #0F3E84, #722FA1, #9b59b6, #0F7F8F);
+    -webkit-background-clip: text;
+    animation: colorSwitch 8s linear infinite, fadeInAnimation ease 1s;
+    -webkit-background-size: 500%;
+    background-size: 500%;
+    z-index: 9;
+}
+
 
 .faq{
     position: relative;
@@ -246,8 +280,8 @@ button:hover span{
 .faq h1{
     color:black;
     font-size: clamp(20px, 3.25vw + 1rem, 50px);
-
 }
+
 
 .faq .tab {
     position: relative;
@@ -327,6 +361,42 @@ button:hover span{
     position: relative;
     color: black;
     z-index: 10;
+}
+
+.containerF{
+	max-width: 1170px;
+	margin:auto;
+}
+
+.row h1{
+    font-size: clamp(15px, 4vw + 0.4rem, 30px);
+    color: transparent;
+    background-image: linear-gradient(to left, #87dfff, #3498db, #9b59b6, #8fc1ff);
+    -webkit-background-clip: text;
+    animation: colorSwitch 8s linear infinite, fadeInAnimation ease 1s;
+    -webkit-background-size: 500%;
+    background-size: 500%;
+    z-index: 9;
+}
+
+
+.footer{
+	background-color: #294b78;
+    padding: 80px 0;
+}
+
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
 }
 
 

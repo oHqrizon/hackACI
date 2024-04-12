@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, url_for, request, session, jsonify
-from flask_mail import Mail, Message
 import time
 import bcrypt
 import sqlite3
