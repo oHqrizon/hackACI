@@ -128,6 +128,7 @@
 
 .form-box{
     width: 90%;
+    height: 60%;
     max-width: 450px;
     position: relative;
     top: 50%;
@@ -197,7 +198,8 @@ form p a{
 }
 
 .btn-field{
-    width: 100%;
+    position: absolute;
+    width: 80%;
     display: flex;
     transform: translateX(24%);
 
